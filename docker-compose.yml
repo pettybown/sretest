@@ -100,19 +100,19 @@ services:
   alert-manager:
     image: prom/alertmanager:latest
     container_name: alert-manager
-    restar: unless-stopped
+    restart: unless-stopped
     volumes:
       - "./alertmanager:/config"
       - alertmanager-data:/data
     ports:
       - 9093:9093
-
 volumes:
   saleor-media:
   saleor-db:
     driver: local
   saleor-redis:
     driver: local
+  alertmanager-data:
 
 networks:
   saleor-backend-tier:
